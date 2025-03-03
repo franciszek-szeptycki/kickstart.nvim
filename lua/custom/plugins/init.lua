@@ -1,5 +1,14 @@
--- You can add your own plugins here or in other files in this directory!
---  I promise not to create any merge conflicts in this directory :)
---
--- See the kickstart.nvim README for more information
-return {}
+return {
+  {
+    'nvim-lua/plenary.nvim', -- wymagane jako dependency
+    lazy = true,
+  },
+  {
+    'nvim-pack/nvim-spectre',
+    dependencies = { 'nvim-lua/plenary.nvim' }, -- upewnia się, że plenary jest zainstalowane
+    config = function()
+      require('spectre').setup()
+      vim.keymap.set('n', '<leader>S', require('spectre').open, { desc = 'Otwórz Spectre' })
+    end,
+  },
+}
