@@ -11,4 +11,11 @@ return {
       vim.keymap.set('n', '<leader>S', require('spectre').open, { desc = 'Otwórz Spectre' })
     end,
   },
+  {
+    'preservim/nerdtree',
+    config = function()
+      vim.keymap.set('n', '<C-n>', ':NERDTreeToggle<CR>', { desc = 'Pokaż/Ukryj NERDTree' })
+      vim.keymap.set('n', '<C-f>', ':NERDTreeFocus<CR>', { desc = 'Przełącz fokus na NERDTree' })
+    end,
+  },
 }
